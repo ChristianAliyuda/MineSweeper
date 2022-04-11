@@ -1,0 +1,8 @@
+C:\Users\hochu\source\repos\ConsoleApp14\ConsoleApp14\bin\Debug\ConsoleApp14.exe.config
+C:\Users\hochu\source\repos\ConsoleApp14\ConsoleApp14\bin\Debug\ConsoleApp14.exe
+C:\Users\hochu\source\repos\ConsoleApp14\ConsoleApp14\bin\Debug\ConsoleApp14.pdb
+C:\Users\hochu\source\repos\ConsoleApp14\ConsoleApp14\obj\Debug\MineSweeperConsoleApp.csproj.AssemblyReference.cache
+C:\Users\hochu\source\repos\ConsoleApp14\ConsoleApp14\obj\Debug\MineSweeperConsoleApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\hochu\source\repos\ConsoleApp14\ConsoleApp14\obj\Debug\MineSweeperConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\hochu\source\repos\ConsoleApp14\ConsoleApp14\obj\Debug\ConsoleApp14.exe
+C:\Users\hochu\source\repos\ConsoleApp14\ConsoleApp14\obj\Debug\ConsoleApp14.pdb
