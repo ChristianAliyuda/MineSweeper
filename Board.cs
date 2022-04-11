@@ -182,9 +182,51 @@ namespace MineSweeperConsoleApp
     
         internal void Pick(int rowGuess, int colGuess)
         {
-            TwoDGrid[rowGuess,colGuess].Visited= true;
+            Recursion(rowGuess,colGuess);
         }
-    
+      public void Recursion(int a, int b)
+        
+        {
+            
+            TwoDGrid[a, b].Visited = true;
+
+            // if current cell has a bomb nearby, then stop.
+            if (TwoDGrid[a, b].NearByBombs > 0) return;
+            
+            // N.  Call flood fill on the cell north of here if it has not yet been visited.
+              if (a-1 >=0  && TwoDGrid[a-1, b].Visited == false)
+                        Recursion(a-1, b);
+
+            // S
+            if (a + 1 < Size && TwoDGrid[a + 1, b].Visited == false)
+                Recursion(a + 1, b);
+
+            // W
+            if (b - 1 >= 0 && TwoDGrid[a, b-1].Visited == false)
+                Recursion(a, b - 1);
+
+            // E
+            if (b + 1 < Size && TwoDGrid[a, b + 1].Visited == false )
+                Recursion(a, b + 1);
+
+            // NW
+            if (a - 1 >= 0 && b - 1  >= 0 && TwoDGrid[a - 1, b - 1].Visited == false )
+                Recursion(a - 1, b - 1);
+
+            // NE
+            if (a - 1 >= 0 && b + 1 < Size && TwoDGrid[a - 1, b + 1].Visited == false )
+                Recursion(a - 1, b + 1);
+
+            // SW
+            if (a + 1 < Size && b - 1 >= 0 && TwoDGrid[a + 1, b - 1].Visited == false )
+                Recursion(a + 1, b - 1);
+
+            // SE
+            if (a + 1 < Size && b + 1 < Size && TwoDGrid[a + 1, b + 1].Visited == false && TwoDGrid[a, b].NearByBombs == 0)
+                Recursion(a + 1, b + 1);
+
+        }
+
     
     
     
@@ -194,4 +236,3 @@ namespace MineSweeperConsoleApp
     
     }
 }
-
