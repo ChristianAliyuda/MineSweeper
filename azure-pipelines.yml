@@ -3,8 +3,9 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
+
 trigger:
-- main
+- main 
 
 pool:
   vmImage: 'windows-latest'
@@ -20,8 +21,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-    
-- checkout: self
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -33,19 +33,18 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-
 - task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**\*.coverage'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-  condition: succeededOrFailed()
+    SourceFolder: '$(System.DefaultWorkingDirectory)\DesktopApp\bin\'
+    Contents: '**'
+    TargetFolder: '$(System.ArtifactsDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-  condition: succeededOrFailed()
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
 
 
